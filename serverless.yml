@@ -1,0 +1,18 @@
+service: jplay
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: java8
+  
+package:
+  artifact: build/distributions/jplay.zip
+
+functions:
+  currentTime:
+    handler: com.serverless.Handler
+    events:
+      - http:
+          path: ping
+          method: get
